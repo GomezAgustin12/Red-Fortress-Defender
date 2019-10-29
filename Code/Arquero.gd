@@ -11,5 +11,6 @@ func _process(delta):
 
 func _on_Area2D_area_entered(area):
 	print(area.name)
-	get_node("Sprite").stop()
-	speed=0
+	if area.name=="Cuerpo":
+		get_node("Sprite").stop()
+		speed=0
