@@ -117,7 +117,7 @@ animation = "Castle2"
 [node name="CastleArea" type="Area2D" parent="Game/CastlePL2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/CastlePL2/CastleArea"]
-position = Vector2( -360, 538.819 )
+position = Vector2( -306.932, 536.675 )
 rotation = -2.41379
 scale = Vector2( 15.7288, 13.6613 )
 z_index = 20
