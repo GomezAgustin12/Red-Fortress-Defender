@@ -66,9 +66,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SegmentShape2D" id=4]
-a = Vector2( -16.4035, -39.2972 )
-b = Vector2( 29.1999, 35.4708 )
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 57, 45, 40, 60, -20, -20, 30, 0 )
 
 [node name="Mapa" type="Node2D"]
 
@@ -115,14 +114,14 @@ z_index = 20
 frames = SubResource( 3 )
 animation = "Castle2"
 
-[node name="Area2D" type="Area2D" parent="Game/CastlePL2"]
+[node name="CastleArea" type="Area2D" parent="Game/CastlePL2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/CastlePL2/Area2D"]
-position = Vector2( -570.111, 69.2153 )
-rotation = -2.73295
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/CastlePL2/CastleArea"]
+position = Vector2( -360, 538.819 )
+rotation = -2.41379
 scale = Vector2( 15.7288, 13.6613 )
 z_index = 20
 shape = SubResource( 4 )
 [connection signal="timeout" from="Game/CreationTime" to="Game" method="_creation_ready_timeout"]
 [connection signal="timeout" from="Game/CreationTime2" to="Game" method="_creation_ready_timeout2"]
-[connection signal="body_entered" from="Game/CastlePL2/Area2D" to="Game" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Game/CastlePL2/CastleArea" to="Game" method="_on_Area2D_body_entered"]

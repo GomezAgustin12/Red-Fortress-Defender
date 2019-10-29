@@ -8,3 +8,7 @@ var vida = 200
 
 func _process(delta):
 	position=position+Vector2(speed*delta, 0)
+
+func _on_Area2D_area_entered(area):
+	print(area.name)
+	speed=0

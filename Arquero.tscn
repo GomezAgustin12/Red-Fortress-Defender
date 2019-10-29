@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Arquero.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprite Arquero/1.png" type="Texture" id=2]
@@ -24,6 +24,9 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.5506, 28.4298 )
+
 [node name="Arquero" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -31,9 +34,17 @@ script = ExtResource( 1 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "sprite Arquero"
-frame = 10
+frame = 11
 speed_scale = 1.7
 playing = true
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="ArqueroArea" type="Area2D" parent="."]
+z_index = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArqueroArea"]
+position = Vector2( 0.94693, 2.84079 )
+shape = SubResource( 2 )
+[connection signal="area_entered" from="ArqueroArea" to="." method="_on_Area2D_area_entered"]

@@ -15,7 +15,6 @@
 [ext_resource path="res://assets/Sprite Asesino/Assesino corre 12.png" type="Texture" id=13]
 [ext_resource path="res://assets/Sprite Asesino/Assesino corre 13.png" type="Texture" id=14]
 [ext_resource path="res://assets/Sprite Asesino/Assesino corre 14.png" type="Texture" id=15]
-[ext_resource path="res://RayCast2D.gd" type="Script" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -25,6 +24,9 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.6974, 30.7699 )
+
 [node name="Asesino" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -32,15 +34,15 @@ script = ExtResource( 1 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 1 )
 animation = "SpriteAsesino"
-frame = 6
+frame = 13
 speed_scale = 2.0
 playing = true
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RayCast2D" type="RayCast2D" parent="Sprite"]
-position = Vector2( 1.4937, 2.68864 )
-scale = Vector2( 0.833333, 0.833333 )
-cast_to = Vector2( 50, 0 )
-script = ExtResource( 16 )
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

@@ -41,7 +41,7 @@ func _process(delta):
 			CreateUnit( Unidades[LeftUnitChosen], Vector2( 250, 64 + ( wayHeight * indice) ) )
 
 	if RelojRight : 
-		if Input.is_action_just_pressed("mouse_action2") :			
+		if Input.is_action_just_pressed("mouse_action2") :
 			var wayHeight : int = int(get_viewport_rect().size.y / 7 )
 			var indice = int(get_viewport().get_mouse_position().y / wayHeight)
 			print(str(Unidades[RightUnitChosen]))
