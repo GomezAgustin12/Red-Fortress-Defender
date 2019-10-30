@@ -19,6 +19,10 @@ config/name="Red Fortress Defense"
 run/main_scene="res://Mapa.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PersonajeDatos="*res://Code/PersonajeDatos.gd"
+
 [display]
 
 window/size/width=1600

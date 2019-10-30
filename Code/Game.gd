@@ -1,19 +1,14 @@
 extends Node2D
 
 
-var asesino = preload("res://Asesino.tscn")
-var archer = preload("res://Arquero.tscn")
-var roca = preload("res://Roca.tscn")
-
-onready var Unidades = [asesino, archer, roca]
+var Amigo = preload( "res://Amigo.tscn" )
+var Enemigo = preload("res://Enemigo.tscn")
 
 
 var RelojLeft : bool = false
 var RelojRight : bool = false
 var LeftUnitChosen =0
 var RightUnitChosen =0
-
-
 
 func _process(delta):
 	$Label.text = str(get_viewport().get_mouse_position()) 
@@ -37,23 +32,20 @@ func _process(delta):
 		if Input.is_action_just_pressed("mouse_action") :
 			var wayHeight : int = int(get_viewport_rect().size.y / 7 )
 			var indice = int(get_viewport().get_mouse_position().y / wayHeight)
-			print(str(Unidades[LeftUnitChosen]))
-			CreateUnit( Unidades[LeftUnitChosen], Vector2( 250, 64 + ( wayHeight * indice) ) )
+			CreateUnit( LeftUnitChosen, Vector2( 250, 64 + ( wayHeight * indice) ) )
 
 	if RelojRight : 
 		if Input.is_action_just_pressed("mouse_action2") :
 			var wayHeight : int = int(get_viewport_rect().size.y / 7 )
 			var indice = int(get_viewport().get_mouse_position().y / wayHeight)
-			print(str(Unidades[RightUnitChosen]))
-			CreateUnit2( Unidades[RightUnitChosen], Vector2( 1300, 64 + ( wayHeight * indice) ) )
-
-
+			CreateUnit2(RightUnitChosen, Vector2( 1300, 64 + ( wayHeight * indice) ) )
 
 
 func CreateUnit(unitRef, origin):
-	var unidad = unitRef.instance()
-	unidad.set_position( origin)
-	
+	print("UnitRef :",unitRef)
+	var unidad = Amigo.instance()
+	unidad._constructor(unitRef)
+	unidad.set_position(origin)
 	get_parent().add_child(unidad)
 	RelojLeft = false
 	$CreationTime.start(3)
@@ -65,9 +57,10 @@ func _creation_ready_timeout():
 
 
 func CreateUnit2(unitRef, origin):
-	var unidad = unitRef.instance()
+	print("UnitRef :",unitRef)
+	var unidad =Enemigo.instance()
+	unidad._constructor(unitRef)
 	unidad.set_position( origin)
-	unidad.speed *= -1
 	get_parent().add_child(unidad)
 	unidad.get_node("Sprite").flip_h = true
 	RelojRight = false
