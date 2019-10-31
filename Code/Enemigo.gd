@@ -1,26 +1,13 @@
 extends Node2D
 
-var Daga = preload("res://Code/Daga.tscn")
+var Daga = preload("res://Daga.tscn")
 var speed 
 
-var personaje = [
-{
-"clase":"asesino",
-"Sprite":"asesinoCorriendo",
-"speed":150,
-
-},
-{
-"clase":"arquero",
-"Sprite":"arqueroCorriendo",
-"speed":150
-}
-]
 
 func _constructor(index : int):
-	get_node("Sprite").animation= personaje[index]["Sprite"]
-	speed = -personaje[index]["speed"]
-	print(personaje[1]["clase"])
+	get_node("Sprite").animation= Datos.personaje[index]["Sprite"]
+	speed = -Datos.personaje[index]["speed"]
+	print(Datos.personaje[1]["clase"])
 	print("Index :", index)
 
 func _process(delta):
@@ -34,7 +21,7 @@ func _on_Cuerpo_area_entered(area):
 
 func _on_Atk_area_entered(area):
 	var neoDaga = Daga.instance()
-	speed=0
+#	speed=0
 	neoDaga.position=position
 	neoDaga.speed*=-1
 	get_parent().add_child(neoDaga)

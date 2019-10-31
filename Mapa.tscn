@@ -114,14 +114,13 @@ z_index = 20
 frames = SubResource( 3 )
 animation = "Castle2"
 
-[node name="CastleArea" type="Area2D" parent="Game/CastlePL2"]
+[node name="CastleAreaEnemy" type="Area2D" parent="Game/CastlePL2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/CastlePL2/CastleArea"]
-position = Vector2( -306.932, 536.675 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/CastlePL2/CastleAreaEnemy"]
+position = Vector2( -327.681, 552.145 )
 rotation = -2.41379
 scale = Vector2( 15.7288, 13.6613 )
 z_index = 20
 shape = SubResource( 4 )
 [connection signal="timeout" from="Game/CreationTime" to="Game" method="_creation_ready_timeout"]
 [connection signal="timeout" from="Game/CreationTime2" to="Game" method="_creation_ready_timeout2"]
-[connection signal="body_entered" from="Game/CastlePL2/CastleArea" to="Game" method="_on_Area2D_body_entered"]
