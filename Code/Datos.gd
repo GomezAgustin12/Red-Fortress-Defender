@@ -7,6 +7,7 @@ var personaje = [
 "Sprite":"asesinoCorriendo",
 "SpriteAtkC":"asesinoAtk",
 "speed":150,
+"vida":100,
 "escaladoX":1,
 "escaladoY":1
 },
@@ -15,6 +16,7 @@ var personaje = [
 "Sprite":"arqueroCorriendo",
 "SpriteAtkC":"arqueroAtk",
 "speed":150,
+"vida":150,
 "escaladoX":0.6,
 "escaladoY":0.6
 },
@@ -23,6 +25,7 @@ var personaje = [
 "Sprite":"rocaCorriendo",
 "SpriteAtkC":"rocaAtk",
 "speed":75,
+"vida":300,
 "escaladoX":1,
 "escaladoY":1
 }

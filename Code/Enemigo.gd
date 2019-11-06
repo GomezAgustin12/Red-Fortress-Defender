@@ -2,21 +2,30 @@ extends Node2D
 
 var Daga = preload("res://Daga.tscn")
 var speed 
+var vida
+var index
 
 
-func _constructor(index : int):
-	get_node("Sprite").animation= Datos.personaje[index]["Sprite"]
+func _constructor(aux : int):
+	index=aux
+	$Sprite.animation= Datos.personaje[index]["Sprite"]
 	speed = -Datos.personaje[index]["speed"]
-	print(Datos.personaje[1]["clase"])
-	print("Index :", index)
+	vida = Datos.personaje[index]["vida"]
+	$Sprite.scale.x=Datos.personaje[index]["escaladoX"]
+	$Sprite.scale.y=Datos.personaje[index]["escaladoY"]
+	$Cuerpo.nombre_personaje=Datos.personaje[index]["clase"]
 
 func _process(delta):
 	position=position+Vector2(speed*delta, 0)
 
 func _on_Cuerpo_area_entered(area):
-	print(area.name)
+	print()
 	if area.name=="Cuerpo":
-		get_node("Sprite").animation="asesinoAtk"
+		$Sprite.animation=Datos.personaje[index]["SpriteAtkC"]
+		speed=0
+
+	if area.name == "CastleAreaAmigo":
+		$Sprite.animation=Datos.personaje[index]["SpriteAtkC"]
 		speed=0
 
 func _on_Atk_area_entered(area):
@@ -25,3 +34,5 @@ func _on_Atk_area_entered(area):
 	neoDaga.position=position
 	neoDaga.speed*=-1
 	get_parent().add_child(neoDaga)
+
+

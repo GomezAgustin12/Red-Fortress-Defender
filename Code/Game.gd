@@ -11,7 +11,6 @@ var LeftUnitChosen =0
 var RightUnitChosen =0
 
 func _process(delta):
-	$Label.text = str(get_viewport().get_mouse_position()) 
 
 	if Input.is_action_just_pressed("Create1"):
 		LeftUnitChosen = 0
@@ -27,48 +26,34 @@ func _process(delta):
 	if Input.is_action_just_pressed("create3"):
 		RightUnitChosen = 2
 	
-	
 	if RelojLeft : 
-		if Input.is_action_just_pressed("mouse_action") :
-			var wayHeight : int = int(get_viewport_rect().size.y / 7 )
-			var indice = int(get_viewport().get_mouse_position().y / wayHeight)
-			CreateUnit( LeftUnitChosen, Vector2( 250, 64 + ( wayHeight * indice) ) )
-
+		if Input.is_action_just_pressed("ui_select") :
+			CreateUnit(LeftUnitChosen)
 	if RelojRight : 
-		if Input.is_action_just_pressed("mouse_action2") :
-			var wayHeight : int = int(get_viewport_rect().size.y / 7 )
-			var indice = int(get_viewport().get_mouse_position().y / wayHeight)
-			CreateUnit2(RightUnitChosen, Vector2( 1300, 64 + ( wayHeight * indice) ) )
+		if Input.is_action_just_pressed("shift") :
+			CreateUnit2(RightUnitChosen)
 
 
-func CreateUnit(unitRef, origin):
+func CreateUnit(unitRef):
 	print("UnitRef :",unitRef)
 	var unidad = Amigo.instance()
 	unidad._constructor(unitRef)
-	unidad.set_position(origin)
+	unidad.set_position($PathA.position)
 	get_parent().add_child(unidad)
 	RelojLeft = false
-	$CreationTime.start(3)
-
+	$CreationTime.start(1)
 
 func _creation_ready_timeout():
 	RelojLeft = true
 
-
-
-func CreateUnit2(unitRef, origin):
-	print("UnitRef :",unitRef)
+func CreateUnit2(unitRef):
 	var unidad =Enemigo.instance()
 	unidad._constructor(unitRef)
-	unidad.set_position( origin)
+	unidad.set_position($PathE.position)
 	get_parent().add_child(unidad)
 	unidad.get_node("Sprite").flip_h = true
 	RelojRight = false
-	$CreationTime2.start(3)
-	
-
+	$CreationTime2.start(1)
 
 func _creation_ready_timeout2():
 	RelojRight = true
-
-
