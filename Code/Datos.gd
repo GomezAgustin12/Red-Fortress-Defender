@@ -26,8 +26,8 @@ var personaje = [
 "SpriteAtkC":"rocaAtk",
 "speed":75,
 "vida":300,
-"escaladoX":1,
-"escaladoY":1
+"escaladoX":0.7,
+"escaladoY":0.7
 }
 ]
 

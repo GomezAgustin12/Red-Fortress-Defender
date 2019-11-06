@@ -7,8 +7,8 @@ func _ready():
 	position=pos[0]
 
 func _process(delta):
-	if Input.is_action_just_pressed("Arriba") && value < 5:
-		if value != 5:
+	if Input.is_action_just_pressed("Arriba") && value < 6:
+		if value != 6:
 			value +=1
 		else:
 			position=Vector2(1500, 840)

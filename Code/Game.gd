@@ -51,7 +51,6 @@ func CreateUnit2(unitRef):
 	unidad._constructor(unitRef)
 	unidad.set_position($PathE.position)
 	get_parent().add_child(unidad)
-	unidad.get_node("Sprite").flip_h = true
 	RelojRight = false
 	$CreationTime2.start(1)
 

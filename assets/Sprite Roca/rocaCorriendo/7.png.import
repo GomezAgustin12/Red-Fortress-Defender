@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/7.png-b5461b686b678380d53fac50c0e3040e.stex"
+path="res://.import/7.png-c92a513ddeb8fe808bf0710cf0953149.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprite Roca/7.png"
-dest_files=[ "res://.import/7.png-b5461b686b678380d53fac50c0e3040e.stex" ]
+source_file="res://assets/Sprite Roca/rocaCorriendo/7.png"
+dest_files=[ "res://.import/7.png-c92a513ddeb8fe808bf0710cf0953149.stex" ]
 
 [params]
 
