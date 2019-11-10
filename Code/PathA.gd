@@ -1,7 +1,7 @@
 extends Position2D
 
 export var value = 0
-var pos=[Vector2(170, 840), Vector2(240, 700), Vector2(260, 575), Vector2(260, 450), Vector2(330, 310), Vector2(240, 180), Vector2(240, 70)]
+var pos=[Vector2(170, 840), Vector2(240, 700), Vector2(260, 575), Vector2(250, 460), Vector2(260, 310), Vector2(240, 180), Vector2(240, 70)]
 
 func _ready():
 	position=pos[0]

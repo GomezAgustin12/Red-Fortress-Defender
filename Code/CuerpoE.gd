@@ -2,7 +2,6 @@ extends Area2D
 
 var Daga = preload("res://Daga.tscn")
 var Flecha = preload("res://Flecha.tscn")
-var Piedra = preload("res://Piedra.tscn")
 var speed
 var vida
 var index
@@ -16,7 +15,6 @@ var ataque
 func _constructor(aux : int):
 	index=aux
 	$Sprite.animation= Datos.personaje[index]["Sprite"]
-	$Sprite.flip_h=true
 	$Sprite.scale.x=Datos.personaje[index]["escaladoX"]
 	$Sprite.scale.y=Datos.personaje[index]["escaladoY"]
 	
@@ -60,31 +58,30 @@ func _on_Cuerpo_area_entered(area):
 
 func _on_Atk_area_entered(area):
 	if index== 0:
+		$Sprite.animation=Datos.personaje[index]["SpriteDist"]
+		get_parent().speed=0
 		var neoDaga = Daga.instance()
 		neoDaga.position=position
 		neoDaga.speed*=-1
 		get_parent().add_child(neoDaga)
 	
 	if index == 1:
+		$Sprite.animation=Datos.personaje[index]["SpriteDist"]
+		get_parent().speed=0
 		var neoFlecha = Flecha.instance()
 		neoFlecha.position=position
 		neoFlecha.speed*=-1
 		get_parent().add_child(neoFlecha)
 		neoFlecha.get_node("Sprite").flip_h=true
-	
-	if index == 2:
-		var neoPiedra = Piedra.instance()
-		neoPiedra.position=position
-		neoPiedra.speed*=-1
-		get_parent().add_child(neoPiedra)
-		neoPiedra.get_node("Sprite").flip_h=true
-		
-func _on_Cuerpo_area_exited(area):
-	if area.name=="CuerpoA" or area.name=="CastleAreaEnemy":
-		get_parent().speed= Datos.personaje[index]["speed"]
-		$Sprite.animation= Datos.personaje[index]["Sprite"]
+	pass
 
 func _on_CuerpoE_area_exited(area):
+	if area.name=="CuerpoA" or area.name=="CastleAreaAmigo":
+		get_parent().speed= -Datos.personaje[index]["speed"]
+		$Sprite.animation= Datos.personaje[index]["Sprite"]
+
+
+func _on_Atk_area_exited(area):
 	if area.name=="CuerpoA" or area.name=="CastleAreaAmigo":
 		get_parent().speed= -Datos.personaje[index]["speed"]
 		$Sprite.animation= Datos.personaje[index]["Sprite"]

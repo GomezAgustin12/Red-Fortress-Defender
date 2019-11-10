@@ -18,6 +18,8 @@ func _process(delta):
 		LeftUnitChosen = 1
 	if Input.is_action_just_pressed("Create3"):
 		LeftUnitChosen = 2
+	if Input.is_action_just_pressed("Create4"):
+		LeftUnitChosen = 3
 
 	if Input.is_action_just_pressed("create1"):
 		RightUnitChosen = 0
@@ -25,6 +27,8 @@ func _process(delta):
 		RightUnitChosen = 1
 	if Input.is_action_just_pressed("create3"):
 		RightUnitChosen = 2
+	if Input.is_action_just_pressed("create4"):
+		RightUnitChosen = 3
 	
 	if RelojLeft : 
 		if Input.is_action_just_pressed("ui_select") :
