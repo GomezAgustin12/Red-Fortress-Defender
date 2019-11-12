@@ -7,6 +7,8 @@ var personaje = [
 "Sprite":"asesinoCorriendo",
 "SpriteAtkC":"asesinoAtk",
 "SpriteDist":"asesinoDistancia",
+"SpriteMuerte":"asesinoMuerte",
+"ultimoFrame": 5,
 "speed":200,
 "vida":100,
 "atkC":30,
@@ -19,6 +21,8 @@ var personaje = [
 "Sprite":"arqueroCorriendo",
 "SpriteAtkC":"arqueroAtk",
 "SpriteDist":"arqueroDistancia",
+"SpriteMuerte":"arqueroMuerte",
+"ultimoFrame": 5,
 "speed":120,
 "vida":150,
 "atkC":10,
@@ -30,21 +34,25 @@ var personaje = [
 "clase":"caballero",
 "Sprite":"caballeroCorriendo",
 "SpriteAtkC":"caballeroAtk",
+"SpriteMuerte":"caballeroMuerte",
+"ultimoFrame": 4,
 "speed":120,
-"vida":300,
+"vida":1000,
 "atkC":40,
-"escaladoX":0.5,
-"escaladoY":0.5
+"escaladoX":0.3,
+"escaladoY":0.3
 },
 {
 "clase":"nordico",
 "Sprite":"nordicoCorriendo",
 "SpriteAtkC":"nordicoAtk",
+"SpriteMuerte":"nordicoMuerte",
+"ultimoFrame": 5,
 "speed":180,
 "vida":200,
 "atkC":60,
-"escaladoX":0.5,
-"escaladoY":0.5
+"escaladoX":0.4,
+"escaladoY":0.4
 }
 ]
 
