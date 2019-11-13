@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Code/Control.gd" type="Script" id=1]
+[ext_resource path="res://assets/Botones/fondo.png" type="Texture" id=2]
+[ext_resource path="res://assets/Botones/untitled.png" type="Texture" id=3]
+[ext_resource path="res://Font/Game of Thrones.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/Botones/Boton.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Fondo" type="NinePatchRect" parent="Control"]
+margin_right = 1584.0
+margin_bottom = 892.0
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+margin_left = 450.0
+margin_top = 250.0
+margin_right = 1195.0
+margin_bottom = 1155.0
+
+[node name="empezar" type="TextureButton" parent="Control/VBoxContainer"]
+margin_top = 200.0
+margin_right = 500.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 400, 200 )
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/empezar"]
+margin_right = 335.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.94902, 0.941176, 0.941176, 1 )
+text = "EMPEZAR"
+align = 1
+valign = 1
+
+[node name="salir" type="TextureButton" parent="Control/VBoxContainer"]
+margin_left = 50.0
+margin_top = 500.0
+margin_right = 550.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 400, 200 )
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/salir"]
+margin_right = 250.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.976471, 0.964706, 0.964706, 1 )
+text = "SALIR"
+align = 1
+valign = 1
+[connection signal="pressed" from="Control/VBoxContainer/empezar" to="Control" method="_on_empezar_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/salir" to="Control" method="_on_salir_pressed"]
